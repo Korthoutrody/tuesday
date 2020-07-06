@@ -1,24 +1,91 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background: linear-gradient(180deg, var(--secondary) 50%, #FFFFFF 50%);
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(180deg, var(--secondary) 50%, #ffffff 50%);
+}
 
+//TEKSTUEEL
+a {
+    color: var(--secondary);
+    font-weight: bold;
 }
 
 .bold {
     font-weight: bold;
 }
 
-input, button, select {
+//VALIDATION
+p.invalid {
+    color: var(--danger);
+}
+
+input.invalid {
+    border: 1px solid var(--danger);
+}
+
+.error-msg {
+    color: var(--danger);
+}
+
+// FORM ELEMENTS
+
+button,
+input,
+select {
+    outline: none !important;
+}
+
+input {
+    padding-left: 16px !important;
+}
+
+.select {
+    border: 1px solid var(--snow);
+    overflow: hidden;
+    height: 45px;
+    position: relative;
+    display: block;
+}
+
+select {
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select:after {
+    content: "\f13a";
+    font-family: FontAwesome;
+    color: #757575;
+    padding: 12px 8px;
+    position: absolute;
+    right: 10px;
+    top: -4px;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+input,
+button,
+select {
     border: 1px solid var(--snow);
     height: 45px;
 }
 
 input::placeholder {
     color: var(--gray);
-    font-size: 12px;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     border: none;
     font-size: 14px;
 
@@ -37,14 +104,16 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color:var(--primary);
+    background-color: var(--primary);
 
     .icon-bg {
         background-color: var(--primary-darken);
     }
 }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
     background-color: var(--primary-darken) !important;
 
     .icon-bg {
@@ -60,8 +129,9 @@ input::placeholder {
     }
 }
 
-
-.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
     background-color: var(--secondary-darken) !important;
 
     .icon-bg {
@@ -73,12 +143,15 @@ input::placeholder {
     background-color: white;
 }
 
-.btn-neutral:hover, .btn-neutral:active, .btn-neutral:focus {
+.btn-neutral:hover,
+.btn-neutral:active,
+.btn-neutral:focus {
     color: var(--secondary);
     font-weight: bold;
 }
 
-.btn-primary:disabled, .btn-secondary:disabled {
+.btn-primary:disabled,
+.btn-secondary:disabled {
     background-color: var(--snow) !important;
 
     .icon-bg {
@@ -86,44 +159,22 @@ input::placeholder {
     }
 }
 
-.select {
-    border: 1px solid var(--snow);
-    overflow: hidden; 
-    height: 45px;    
-    position: relative;
-    display: block;
-}
 
-select{       
-    border: 0;
-   -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.select:after {
-    content:"\f13a";
-    font-family: FontAwesome;
-    color: #757575;
-    padding: 12px 8px;
-    position: absolute; 
-    right: 10px; 
-    top: -4px;
-    z-index: 1;
-    text-align: center;
-    width: 10%;
-    height: 100%;      
-    pointer-events: none;
-    box-sizing: border-box;   
-}
-a {
-    color: var(--secondary);
-    font-weight: bold;
-}
-
+// FONTSIZES
 .label {
     font-size: 14px;
 }
-.mat-step-label, .mat-checkbox-label {
+.mat-step-label,
+.mat-checkbox-label,
+input::placeholder  {
+    font-size: 12px;
+}
+
+p, span {
+    font-size: 14px;
+}
+
+small {
     font-size: 12px;
 }
 
@@ -135,61 +186,9 @@ h6 {
     font-size: 16px;
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-    .mat-step-label {
-        font-size: 12px;
-    }
-    
-    h5 {
-        font-size: 24px;
-    }
-    
-    h6 {
-        font-size: 20px;
-    }
-
-    .select:after {
-        content:"\f13a";
-        font-family: FontAwesome;
-        color: #757575;
-        padding: 12px 8px;
-        position: absolute; 
-        right: -5px; 
-        top: -4px;
-        z-index: 1;
-        text-align: center;
-        width: 10%;
-        height: 100%;      
-        pointer-events: none;
-        box-sizing: border-box;   
-    }
- }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {  }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {  }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {  }
-
-
-
-button, input, select {
-    outline: none !important;
-}
-
-input {
-    padding-left: 16px !important;
-}
-
-
 mat-form-field {
     padding: 0 !important;
     border: 1px solid var(--snow);
-
 
     .mat-form-field-wrapper {
         padding: 0 !important;
@@ -208,10 +207,28 @@ mat-form-field {
 }
 
 
-input::placeholder {
-    font-size: 12px;
+// ++ DESKTOP
+@media (min-width: 576px) {
+    .mat-step-label {
+        font-size: 12px;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+
+    h6 {
+        font-size: 20px;
+    }
+
+    .select:after {
+        right: -5px;
+ 
+    }
 }
 
+
+// -------- 8 POINT PADDING EN MARGINS ---------
 //PADDING SMALL
 .p-sm {
     padding: 8px;
@@ -304,7 +321,6 @@ input::placeholder {
     padding-left: 24px;
     padding-right: 24px;
 }
-
 
 //MARGIN SMALL
 .m-sm {
@@ -399,15 +415,13 @@ input::placeholder {
     margin-right: 24px;
 }
 
-:root 
-{
---primary: #2FB668;
---primary-darken: #1b7a45; 
---secondary: #025179;
---secondary-darken: #025179;
---danger: #8C251D;
---black: #212529;
---gray: #8B8B8B;
---snow: #ccc;
+:root {
+    --primary: #2fb668;
+    --primary-darken: #1b7a45;
+    --secondary: #025179;
+    --secondary-darken: #025179;
+    --danger: #8c251d;
+    --black: #212529;
+    --gray: #8b8b8b;
+    --snow: #ccc;
 }
-

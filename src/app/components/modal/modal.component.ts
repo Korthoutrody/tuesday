@@ -1,6 +1,6 @@
 import { Component, OnInit, Pipe, PipeTransform, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ErrorHandler } from '@angular/core'
 import * as i18nIsoCountries from 'i18n-iso-countries'
 import { DatePipe } from '@angular/common';
@@ -13,7 +13,7 @@ declare var System: { import(uri: string): any }
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
   providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
   }]
 })
 export class ModalComponent implements OnInit {
@@ -25,7 +25,7 @@ export class ModalComponent implements OnInit {
   countries;
   newsletter = false;
   bonusses = false;
-  step_tags = [ 
+  step_tags = [
     'Kies een gebruikersnaam', 'Aanvullende gegevens', 'Hoe kunnen wij je op de hoogte houden?'
   ];
   stepTitle = 'Kies een gebruikersnaam';
@@ -34,7 +34,6 @@ export class ModalComponent implements OnInit {
 
 
   @ViewChild('stepper') stepper: MatStepper;
-
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
@@ -52,14 +51,14 @@ export class ModalComponent implements OnInit {
       const nl = modules[0];
       i18nIsoCountries.registerLocale(nl)
       this.countries = nl.countries;
-      
+
     }).catch(err => { this.errorHandler.handleError(err) })
 
     this.firstFormGroup = this._formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]],
       checked: [false, Validators.pattern('true')]
     });
-    
+
     this.secondFormGroup = this._formBuilder.group({
       nationality: ['', Validators.required],
       date: ['', Validators.required]
@@ -70,9 +69,8 @@ export class ModalComponent implements OnInit {
     });
 
   }
-  
 
-  changeStep(){
+  changeStep() {
     this.stepTitle = this.step_tags[this.stepper.selectedIndex];
   }
 
@@ -80,24 +78,20 @@ export class ModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  toggleBonusses($event){
+  toggleBonusses($event) {
     this.bonusses = $event.checked;
   }
 
-  toggleNewsletter($event){
+  toggleNewsletter($event) {
     this.newsletter = $event.checked;
   }
 
-  finishForm(){
+  finishForm() {
     const email = this.data.email;
     const username = this.firstFormGroup.get('name').value;
-    
     const nationality = this.secondFormGroup.get('nationality').value;
-    const birthdate = this.datePipe.transform( this.secondFormGroup.get('date').value, 'dd-MM-yyyy');
-    console.log(email, username, nationality, birthdate, this.bonusses, this.newsletter);
-
-    const dialogResult = {'email': email, 'username': username, 'nationality': nationality, 'birthdate': birthdate, 'bonusses': this.bonusses, 'newsletter': this.newsletter};
-    console.log(dialogResult);
+    const birthdate = this.datePipe.transform(this.secondFormGroup.get('date').value, 'dd-MM-yyyy');
+    const dialogResult = { 'email': email, 'username': username, 'nationality': nationality, 'birthdate': birthdate, 'bonusses': this.bonusses, 'newsletter': this.newsletter };
     this.dialogRef.close(dialogResult);
   }
 

@@ -3,7 +3,11 @@
       <div *ngIf="!registered" class="content">
         <h5 class="bold py-md">Maak in 30 seconden jouw gratis account aan</h5>
         <form [formGroup]="form">
-        <input formControlName="email"  class="mb-md" placeholder="Jouw email-adres">
+        <div class="mb-md">
+          <input [class.invalid]="!form.get('email').valid && (form.get('email').dirty || form.get('email').touched)" formControlName="email" placeholder="Jouw email-adres">
+          <span class="error-msg pl-sm pb-md" *ngIf="!form.get('email').valid && (form.get('email').dirty || form.get('email').touched)">Voer alstublieft een geldig emailadres in</span>
+        </div>
+
         <button [disabled]="!form.valid" class="mb-md" (click)="openRegisterModal()" class="one-line btn-primary">Account aanmaken <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
         </form>
         <div class="text-center pt-md">
@@ -27,7 +31,7 @@
             <li>{{user_details.email}}</li>
             <li>{{user_details.birthdate}}</li>
             <li *ngIf="user_details.bonusses">Ik wil graag bonusses ontvangen!</li>
-            <li *ngIf="user_details.newsletter">Ik wil geen nieuwsbrieven ontvangen!</li>
+            <li *ngIf="user_details.newsletter">Ik wil graag nieuwsbrieven ontvangen!</li>
         </ul>
 
       </div>
