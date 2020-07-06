@@ -1,0 +1,41 @@
+<div class="centered-block">
+    <div class="holder">
+      <div *ngIf="!registered" class="content">
+        <h5 class="bold py-md">Maak in 30 seconden jouw gratis account aan</h5>
+        <form [formGroup]="form">
+        <input formControlName="email"  class="mb-md" placeholder="Jouw email-adres">
+        <button [disabled]="!form.valid" class="mb-md" (click)="openRegisterModal()" class="one-line btn-primary">Account aanmaken <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
+        </form>
+        <div class="text-center pt-md">
+          <small>54 mensen gingen je de afgelopen week voor</small>
+        </div>
+        <hr>
+  
+        <div class="text-center pt-md">
+          <h6 class="bold">Supersnel registreren met</h6>
+        </div>
+        <div class="socials pt-md">
+          <button class="btn-facebook"><i class="fa fa-facebook fa-lg pr-2"></i>Facebook</button>
+          <button class="btn-google"><i class="fa fa-google fa-lg pr-2"></i>Google</button>
+          <button class="btn-apple"><i class="fa fa-apple fa-lg pr-2"></i>Apple</button>
+        </div>
+      </div>
+      <div *ngIf="registered" class="content">
+        <h5 class="bold py-md">Registratie succesvol - details:</h5>
+        <ul>
+            <li>{{user_details.username}}</li>
+            <li>{{user_details.email}}</li>
+            <li>{{user_details.birthdate}}</li>
+            <li *ngIf="user_details.bonusses">Ik wil graag bonusses ontvangen!</li>
+            <li *ngIf="user_details.newsletter">Ik wil geen nieuwsbrieven ontvangen!</li>
+        </ul>
+
+      </div>
+      <div *ngIf="!registered"  class="footer py-sm">
+        <small>Heb je al een account? <a href="">Log dan in hier</a></small>
+      </div>
+    </div>
+  
+  </div>
+  
+  

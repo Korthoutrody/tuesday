@@ -1,0 +1,91 @@
+<div id="modal-content-wrapper">
+    <header *ngIf="!quitting" id="modal-header">
+        <button id="modal-cancel-button" (click)="quitting = !quitting">
+            Sluiten <i class="fa fa-close"></i>
+        </button>
+    </header>
+    <section id="modal-body">
+        
+      <div *ngIf="quitting" class="modal-quit mx-md my-lg">
+        <h5 id="modal-title">Weet je zeker dat je het registratie proces wilt stoppen?</h5>
+        <button (click)="closeModal()" class="btn-neutral one-line my-md">Terug naar hoofdmenu</button>
+        <button (click)="quitting = !quitting" class="btn-secondary one-line">Registratie afmaken <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
+      </div>
+
+      <h5 class="pt-md" *ngIf="!quitting" id="modal-title">{{stepTitle}}</h5>
+
+        <mat-horizontal-stepper color="accent" *ngIf="!quitting" class="stepper" linear=true #stepper>
+          <ng-template matStepperIcon="edit">
+          </ng-template>
+          <ng-template matStepperIcon="next">
+          </ng-template>
+          <ng-template matStepperIcon="last">
+          </ng-template>
+          <ng-template matStepperIcon="done">
+            <mat-icon>done</mat-icon>
+          </ng-template>
+
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+
+                
+                <ng-template matStepLabel>Profiel</ng-template>
+
+              <input class="mb-md" formControlName="name"  placeholder="Kies een gebruikersnaam" [class.invalid]="!firstFormGroup.get('name').valid && (firstFormGroup.get('name').dirty || firstFormGroup.get('name').touched)">
+              
+              <mat-checkbox formControlName="checked" color="primary" class="checkbox" [checked]="checked">Ik ga akkoord met de <a href="">algemene voorwaarden</a> van Voetbalwedden.net</mat-checkbox>
+              <button (click)="changeStep()" [disabled]="!firstFormGroup.valid" matStepperNext class="one-line btn-secondary mt-md">Ga verder <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
+              </form>
+
+            </mat-step>
+
+
+            <mat-step [stepControl]="secondFormGroup" state="next">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Gegevens</ng-template>
+
+                <label class="bold pb-sm label">Nationaliteit</label>
+                <label class="select">
+                  <select class="mb-md px-sm" formControlName="nationality">
+                    <option default value="default"></option>
+                    <option *ngFor="let country of countries | keyvalue"
+                    [value]="country.key">{{country.value}}</option>
+                  </select>
+              </label>
+
+                <label class="bold pb-sm label">Geboortedatum</label>
+                <mat-form-field class="date-input mb-md" appearance="none" floatLabel="never">
+                  <input [matDatepicker]="dp" formControlName="date" class="input-with-parent" matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker   #picker></mat-datepicker>
+                </mat-form-field>
+
+                <div class="buttons mt-md">
+                  <button (click)="changeStep()"  matStepperPrevious class="btn-neutral">Vorige</button>
+                  <button (click)="changeStep()"  [disabled]="!secondFormGroup.valid" matStepperNext class="btn-secondary">Ga verder <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
+                </div>
+              </form>
+            </mat-step>
+
+
+            <mat-step [stepControl]="thirdFormGroup" state="last">
+              <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel>Afronden</ng-template>
+                <mat-checkbox color="primary" class="checkbox" [checked]="bonusses" (change)="toggleBonusses($event)">Ik wil graag exclusieve bonussen ontvangen in mijn e-mail.</mat-checkbox>
+                <mat-checkbox color="primary" class="checkbox" [checked]="newsletter" (change)="toggleNewsletter($event)">Ik wil graag nieuwsbrieven van .object. in mijn e-mail ontvangen.</mat-checkbox>
+
+                <div class="buttons mt-md">
+                  <button (click)="changeStep()"  matStepperPrevious class="btn-neutral">Vorige</button>
+                  <button (click)="finishForm()" matStepperNext class="btn-secondary">Opslaan en afronden <div class="icon-bg"><i class="fa fa-chevron-right"></i></div></button>
+                </div>
+                </form>
+            </mat-step>
+
+
+          </mat-horizontal-stepper>
+  
+    </section>
+    <footer id="modal-footer">
+     
+    </footer>
+</div>

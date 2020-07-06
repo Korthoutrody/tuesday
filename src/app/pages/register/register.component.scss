@@ -1,0 +1,199 @@
+.centered-block {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .holder {
+        max-width: 90%;
+        margin-top: 16px;
+        border: 1px solid #F2F5F8;
+
+        input, p, small, button.one-line {
+            width: 100%;
+        }
+
+        p, small {
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        h5, h6 {
+            text-align: center;
+        }
+
+        .content {
+            background-color: #FDFDFD;
+            padding: 24px 24px;
+            
+
+            hr {
+                border-top: 1px solid #F2F5F8;
+            }
+            
+            small {
+                color: lightgray;
+            }
+
+            .socials {
+            
+                button {
+                    background-color: white;
+                    font-weight: bold;
+                    font-size: 12px;
+                    width: 100%;
+                
+                }
+
+                button.btn-facebook {
+                    margin-bottom: 16px;
+
+                    i {
+                        color: #3b5998;
+                    }
+                }
+
+                button.btn-google {
+                    margin-bottom: 16px;
+
+                    i {
+                        color: #dd4b39;
+                    }
+                }
+
+                button.btn-apple {
+
+                    i {
+                        color: var(--black);
+                    }
+                }
+                
+            }
+
+
+        }
+    
+        .footer {
+            width: 100%;
+            background-color: #F2F5F8;
+            text-align: center;
+
+            small {
+                color: var(--gray);
+                a {
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    .centered-block {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        .holder {
+            max-width: 600px;
+            margin-top: 15em;
+            border: 1px solid #F2F5F8;
+    
+            input, p, small, button.one-line {
+                width: 100%;
+            }
+    
+            p, small {
+                letter-spacing: 0.5px;
+            }
+    
+            .content {
+                background-color: #FDFDFD;
+                padding: 40px 40px;
+                
+    
+                hr {
+                    border-top: 1px solid #F2F5F8;
+                }
+                
+                small {
+                    color: lightgray;
+                }
+    
+                .socials {
+                    display: flex;
+                    justify-content: space-around;
+                
+    
+                    button {
+                        background-color: white;
+                        font-weight: bold;
+                        font-size: 12px;
+                        width: 30%;
+                    
+                    }
+    
+                    button.btn-facebook {
+                        margin-right: 8px;
+    
+                        i {
+                            color: #3b5998;
+                        }
+                    }
+    
+                    button.btn-google {
+                        margin-right: 8px;
+                        margin-left: 8px;
+    
+                        i {
+                            color: #dd4b39;
+                        }
+                    }
+    
+                    button.btn-apple {
+                        margin-left: 8px;
+    
+                        i {
+                            color: var(--black);
+                        }
+                    }
+                    
+                }
+    
+    
+            }
+        
+            .footer {
+                width: 100%;
+                background-color: #F2F5F8;
+                text-align: center;
+    
+                small {
+                    color: var(--gray);
+                    a {
+                        font-weight: bold;
+                    }
+                }
+    
+            }
+        }
+    
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }

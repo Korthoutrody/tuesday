@@ -1,1 +1,413 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: linear-gradient(180deg, var(--secondary) 50%, #FFFFFF 50%);
+
+}
+
+.bold {
+    font-weight: bold;
+}
+
+input, button, select {
+    border: 1px solid var(--snow);
+    height: 45px;
+}
+
+input::placeholder {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.btn-primary, .btn-secondary {
+    border: none;
+    font-size: 14px;
+
+    .icon-bg {
+        height: 16px;
+        width: 16px;
+        padding: 2.5px;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 8px;
+
+        i {
+            color: white;
+        }
+    }
+}
+
+.btn-primary {
+    background-color:var(--primary);
+
+    .icon-bg {
+        background-color: var(--primary-darken);
+    }
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: var(--primary-darken) !important;
+
+    .icon-bg {
+        background-color: unset !important;
+    }
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+
+    .icon-bg {
+        background-color: var(--secondary-darken);
+    }
+}
+
+
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+    background-color: var(--secondary-darken) !important;
+
+    .icon-bg {
+        background-color: unset !important;
+    }
+}
+
+.btn-neutral {
+    background-color: white;
+}
+
+.btn-neutral:hover, .btn-neutral:active, .btn-neutral:focus {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.btn-primary:disabled, .btn-secondary:disabled {
+    background-color: var(--snow) !important;
+
+    .icon-bg {
+        background-color: unset !important;
+    }
+}
+
+.select {
+    border: 1px solid var(--snow);
+    overflow: hidden; 
+    height: 45px;    
+    position: relative;
+    display: block;
+}
+
+select{       
+    border: 0;
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select:after {
+    content:"\f13a";
+    font-family: FontAwesome;
+    color: #757575;
+    padding: 12px 8px;
+    position: absolute; 
+    right: 10px; 
+    top: -4px;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;      
+    pointer-events: none;
+    box-sizing: border-box;   
+}
+a {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.label {
+    font-size: 14px;
+}
+.mat-step-label, .mat-checkbox-label {
+    font-size: 12px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    .mat-step-label {
+        font-size: 12px;
+    }
+    
+    h5 {
+        font-size: 24px;
+    }
+    
+    h6 {
+        font-size: 20px;
+    }
+
+    .select:after {
+        content:"\f13a";
+        font-family: FontAwesome;
+        color: #757575;
+        padding: 12px 8px;
+        position: absolute; 
+        right: -5px; 
+        top: -4px;
+        z-index: 1;
+        text-align: center;
+        width: 10%;
+        height: 100%;      
+        pointer-events: none;
+        box-sizing: border-box;   
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+
+
+button, input, select {
+    outline: none !important;
+}
+
+input {
+    padding-left: 16px !important;
+}
+
+
+mat-form-field {
+    padding: 0 !important;
+    border: 1px solid var(--snow);
+
+
+    .mat-form-field-wrapper {
+        padding: 0 !important;
+    }
+
+    .mat-form-field-infix {
+        padding: 0 !important;
+        border-top: unset !important;
+    }
+
+    select {
+        padding: 0 !important;
+        margin: none !important;
+        border: unset;
+    }
+}
+
+
+input::placeholder {
+    font-size: 12px;
+}
+
+//PADDING SMALL
+.p-sm {
+    padding: 8px;
+}
+
+.pt-sm {
+    padding-top: 8px;
+}
+
+.pb-sm {
+    padding-bottom: 8px;
+}
+
+.py-sm {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.pl-sm {
+    padding-left: 8px;
+}
+
+.pr-sm {
+    padding-right: 8px;
+}
+
+.px-sm {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+//PADDING MEDIUM
+.p-md {
+    padding: 16px;
+}
+
+.pt-md {
+    padding-top: 16px;
+}
+
+.pb-md {
+    padding-bottom: 16px;
+}
+
+.py-md {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.pl-md {
+    padding-left: 16px;
+}
+
+.pr-md {
+    padding-right: 16px;
+}
+
+.px-md {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+//PADDING LARGE
+.p-lg {
+    padding: 24px;
+}
+
+.pt-lg {
+    padding-top: 24px;
+}
+
+.pb-lg {
+    padding-bottom: 24px;
+}
+
+.py-lg {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.pl-lg {
+    padding-left: 24px;
+}
+
+.pr-lg {
+    padding-right: 24px;
+}
+
+.px-lg {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+
+//MARGIN SMALL
+.m-sm {
+    margin: 8mx;
+}
+
+.mt-sm {
+    margin-top: 8px;
+}
+
+.mb-sm {
+    margin-bottom: 8px;
+}
+
+.my-sm {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.ml-sm {
+    margin-left: 8px;
+}
+
+.mr-sm {
+    margin-right: 8px;
+}
+
+.mx-sm {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+//MARGIN MEDIUM
+.m-md {
+    margin: 16px;
+}
+
+.mt-md {
+    margin-top: 16px;
+}
+
+.mb-md {
+    margin-bottom: 16px;
+}
+
+.my-md {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.ml-md {
+    margin-left: 16px;
+}
+
+.mr-md {
+    margin-right: 16px;
+}
+
+.mx-md {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+//MARGIN LARGE
+.m-lg {
+    margin: 24px;
+}
+
+.mt-lg {
+    margin-top: 24px;
+}
+
+.mb-lg {
+    margin-bottom: 24px;
+}
+
+.my-lg {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.ml-lg {
+    margin-left: 24px;
+}
+
+.mr-lg {
+    margin-right: 24px;
+}
+
+.mx-lg {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+:root 
+{
+--primary: #2FB668;
+--primary-darken: #1b7a45; 
+--secondary: #025179;
+--secondary-darken: #025179;
+--danger: #8C251D;
+--black: #212529;
+--gray: #8B8B8B;
+--snow: #ccc;
+}
+

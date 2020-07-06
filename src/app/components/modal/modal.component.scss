@@ -1,0 +1,168 @@
+::ng-deep mat-dialog-container {
+    padding: unset !important;
+    background: none !important;
+
+}
+#modal-content-wrapper {
+    #modal-header {
+        min-height: 30px;
+        background-color: none !important;
+
+        #modal-cancel-button {
+            color: white;
+            float: right;
+            background: none;
+            border: none;
+            padding-right: 16px;
+            padding-bottom: 16px;
+        }
+    }
+
+    #modal-body {
+        width: 100%;
+        padding: 24px;
+        background-color: white;
+
+        ::ng-deep .mat-step-label { 
+            font-size: 12px;
+            overflow: unset;
+            text-overflow: unset;
+        }
+
+        ::ng-deep .mat-step-icon { 
+            height: 12px;
+            width: 12px;
+        }
+
+        ::ng-deep .mat-horizontal-stepper-header[ng-reflect-state="edit"] .mat-step-label  {
+            color: var(--secondary);
+            font-weight: bold;        
+        }
+
+        ::ng-deep .mat-horizontal-stepper-header[ng-reflect-state="done"] .mat-step-label, ::ng-deep .mat-horizontal-stepper-header[ng-reflect-state="last"] .mat-step-label {
+            display: none;
+        }
+
+        ::ng-deep .mat-horizontal-stepper-header{
+            pointer-events: none !important;
+        }
+        
+        ::ng-deep .mat-horizontal-stepper-header {
+            overflow: hidden;
+        }
+
+        ::ng-deep .mat-horizontal-stepper-header:first-of-type { 
+            padding: unset;
+        }
+
+        ::ng-deep .mat-horizontal-content-container { 
+            padding: 0 !important;
+        }
+
+        ::ng-deep .mat-checkbox-inner-container {
+            margin-top: unset;
+            margin-bottom: unset;
+        }
+
+        ::ng-deep .mat-checkbox-label {
+            white-space: normal;
+        }
+        
+
+        ::ng-deep .mat-form-field-flex {
+            height: 45px !important;
+        }
+        
+        ::ng-deep .mat-form-field {
+            height: 45px !important;
+        }
+
+        input, p, small, button.one-line, label, select, mat-form-field, .stepper ::ng-deep .mat-horizontal-stepper-header-container {
+            width: 100% !important;
+        }
+
+        p, small, label, span{
+            letter-spacing: 0.5px;
+        }
+
+        .select {
+            margin-bottom: 16px;
+        }
+
+        .buttons {
+
+            button {
+                margin-bottom: 16px;
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+p.invalid {
+    color: var(--danger);
+}
+
+input.invalid {
+    border: 1px solid var(--danger);
+}
+
+ 
+ // Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    #modal-content-wrapper {
+        #modal-header {
+            min-height: 30px;
+            background: white;
+
+            #modal-cancel-button {
+                position: relative;
+                color: black;
+                float: right;
+                background: none;
+                border: none;
+                padding-top: 16px;
+            }
+        }
+    
+    
+        #modal-body {
+            width: 100%;
+    
+            input, p, small, button.one-line, label, select, mat-form-field, .stepper ::ng-deep .mat-horizontal-stepper-header-container {
+                width: 100% !important;
+            }
+    
+            p, small, label, span{
+                letter-spacing: 0.5px;
+            }
+    
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+    
+                button:first-of-type {
+                    width: 30%;
+                }
+    
+                button:last-of-type {
+                    width: 60%;
+                }
+            }
+    
+        }
+    }
+    
+    
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
